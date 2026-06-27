@@ -56,6 +56,9 @@ android {
         pickFirst 'lib/x86_64/libc++_shared.so'
         pickFirst 'lib/armeabi-v7a/libc++_shared.so'
         pickFirst 'lib/arm64-v8a/libc++_shared.so'
+        
+        exclude 'META-INF/INDEX.LIST'
+        exclude 'META-INF/io.netty.versions.properties'
     }
 }
 
@@ -65,15 +68,21 @@ dependencies {
     implementation 'com.google.android.material:material:1.10.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     
-    // DJI SDK V5
-    implementation 'com.dji:dji-sdk-v5-aircraft:5.10.0'
+    // DJI SDK V5 with exclusions to prevent conflicts
+    implementation ('com.dji:dji-sdk-v5-aircraft:5.10.0') {
+        exclude group: 'com.amap.api'
+    }
     compileOnly 'com.dji:dji-sdk-v5-aircraft-provided:5.10.0'
     
-    // DJI UX SDK V5 (Cần thiết cho FPVWidget)
+    // DJI UX SDK V5
     implementation 'com.dji:dji-uxsdk-v5:5.10.0'
     
-    // Các thư viện hỗ trợ cần thiết cho DJI SDK
+    // Lifecycle & Coroutines
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.2'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
+    
+    // Room components to ensure version consistency
+    implementation "androidx.room:room-runtime:2.6.0"
+    implementation "androidx.room:room-ktx:2.6.0"
 }
