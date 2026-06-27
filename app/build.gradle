@@ -4,6 +4,14 @@ plugins {
     id 'kotlin-kapt'
 }
 
+repositories {
+    google()
+    mavenCentral()
+    maven { url "https://developer.dji.com/maven" }
+    maven { url "https://jitpack.io" }
+    maven { url "https://maven.aliyun.com/repository/public" }
+}
+
 android {
     namespace 'com.trinzflycam.app'
     compileSdk 34
@@ -74,7 +82,7 @@ dependencies {
     implementation 'com.dji:dji-sdk-v5-aircraft:5.10.0'
     compileOnly 'com.dji:dji-sdk-v5-aircraft-provided:5.10.0'
     
-    // DJI UX SDK V5
+    // DJI UX SDK V5 - Thử dùng phiên bản phổ biến nhất nếu 5.10.0 không tìm thấy
     implementation 'com.dji:dji-uxsdk-v5:5.10.0'
     
     // Lifecycle & Coroutines
