@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -36,6 +37,7 @@ android {
     }
     buildFeatures {
         viewBinding true
+        dataBinding true
     }
     packagingOptions {
         doNotStrip "*/*/libdjivideo.so"
@@ -68,10 +70,8 @@ dependencies {
     implementation 'com.google.android.material:material:1.10.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     
-    // DJI SDK V5 with exclusions to prevent conflicts
-    implementation ('com.dji:dji-sdk-v5-aircraft:5.10.0') {
-        exclude group: 'com.amap.api'
-    }
+    // DJI SDK V5
+    implementation 'com.dji:dji-sdk-v5-aircraft:5.10.0'
     compileOnly 'com.dji:dji-sdk-v5-aircraft-provided:5.10.0'
     
     // DJI UX SDK V5
@@ -82,7 +82,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
     
-    // Room components to ensure version consistency
+    // Room components
     implementation "androidx.room:room-runtime:2.6.0"
-    implementation "androidx.room:room-ktx:2.6.0"
+    kapt "androidx.room:room-compiler:2.6.0"
 }

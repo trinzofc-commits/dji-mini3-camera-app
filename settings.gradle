@@ -12,6 +12,8 @@ dependencyResolutionManagement {
         mavenCentral()
         maven { url 'https://maven-central.storage.googleapis.com' }
         maven { url "https://jitpack.io" }
+        // Kho lưu trữ của DJI
+        maven { url "https://developer.dji.com/maven" }
     }
 }
 rootProject.name = "DJI Mini 3 Camera App"
