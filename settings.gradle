@@ -11,6 +11,7 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven { url 'https://maven-central.storage.googleapis.com' }
+        maven { url "https://jitpack.io" }
     }
 }
 rootProject.name = "DJI Mini 3 Camera App"
