@@ -27,6 +27,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            // Tắt nén tài nguyên để tránh lỗi merge resource với bộ SDK lớn
+            shrinkResources false
+            minifyEnabled false
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
@@ -58,6 +63,15 @@ android {
         
         exclude 'META-INF/INDEX.LIST'
         exclude 'META-INF/io.netty.versions.properties'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/*.kotlin_module'
     }
 }
 
@@ -71,7 +85,7 @@ dependencies {
     implementation 'com.dji:dji-sdk-v5-aircraft:5.10.0'
     compileOnly 'com.dji:dji-sdk-v5-aircraft-provided:5.10.0'
     
-    // DJI UX SDK V5 (Community version on Maven Central)
+    // DJI UX SDK V5
     implementation 'io.github.sheng93:dji-uxsdk:5.15.1'
     
     // Lifecycle & Coroutines
