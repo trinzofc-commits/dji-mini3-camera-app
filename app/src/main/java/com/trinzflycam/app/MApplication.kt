@@ -1,4 +1,4 @@
-package com.example.djicamera
+package com.trinzflycam.app
 
 import android.app.Application
 import android.content.Context

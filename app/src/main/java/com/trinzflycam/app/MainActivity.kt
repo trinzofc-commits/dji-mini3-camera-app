@@ -1,8 +1,8 @@
-package com.example.djicamera
+package com.trinzflycam.app
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.djicamera.databinding.ActivityMainBinding
+import com.trinzflycam.app.databinding.ActivityMainBinding
 import com.dji.sdk.v5.manager.SDKManager
 import com.dji.sdk.v5.manager.interfaces.SDKManagerCallback
 import com.dji.sdk.v5.common.register.DJISDKInitEvent
